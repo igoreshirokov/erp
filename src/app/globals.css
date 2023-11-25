@@ -105,3 +105,9 @@ a {
     color-scheme: dark;
   }
 }
+
+main {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 60px 20px;
+}
