@@ -1,7 +1,7 @@
 import { Montserrat } from 'next/font/google'
 import './globals.css'
 import { Navigation } from '@/components/Navigation'
-import Head from 'next/head'
+
 import styled from 'styled-components'
 
 const inter = Montserrat({subsets: ['cyrillic'] })
@@ -14,11 +14,6 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <Head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet"></link>
-      </Head>
       <body className={inter.className}>
           <Navigation />
           <main>

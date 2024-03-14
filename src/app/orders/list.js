@@ -1,7 +1,11 @@
 'use client'
 import { colors } from "@/constants";
 import styled from "styled-components"
-
+import { useEffect, useState } from "react";
+import { getListOrders } from "./listAction";
+import { LoadingList } from "@/components/Loaders";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 const Table = styled.div`
     display: table;
     width: 100%;
@@ -21,24 +25,38 @@ const TD = styled.div`
     display: table-cell;
 `;
 
-
 function ListOrders() {
+    const [list, setList] = useState([]);
+    const router = useRouter();
+    useEffect(() => {
+        getListOrders().then(r => setList(r));
+    }, []);
+
+    if (!list.length) {
+        return <LoadingList />
+    }
+
     return (
         <Table>
             <Row>
+                <TH>ID</TH>
                 <TH>Статус</TH>
                 <TH>Дата</TH>
                 <TH># Заказа</TH>
                 <TH>Менеджер</TH>
                 <TH>Комментарий</TH>
             </Row>
-            <Row>
-                <TD>В работе</TD>
-                <TD>24.11.2023</TD>
-                <TD>ШЮ-357</TD>
-                <TD>Наталья</TD>
-                <TD>Срочно!</TD>
-            </Row>
+            {list.map((item, index) => {
+                return (
+                    <Row className="row-cursor" onClick={() => router.push(`orders/${item.id}`)}>
+                        <TD>{item.id}</TD>
+                        <TD>{item.date}</TD>
+                        <TD>{item.order}</TD>
+                        <TD>{item.name}</TD>
+                        <TD>{item.comment}</TD>
+                    </Row>
+                )
+            })}
         </Table>
     )
 }

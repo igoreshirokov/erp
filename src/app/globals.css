@@ -111,3 +111,13 @@ main {
   max-width: 1200px;
   padding: 60px 20px;
 }
+
+.cursor { 
+  cursor: pointer;
+}
+
+.row-cursor:hover {
+  cursor: pointer;
+  opacity: 0.3;
+  transition: .3;
+}

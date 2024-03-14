@@ -30,8 +30,8 @@ const NavigationItem = ({href, children}) => {
 
 const NavigationList = styled.div`
     background-color: ${colors.layer2};
-    height: ${open ? '100vh' : '0'};
-    width: ${open ? '300px' : '0px'};
+    height: ${open ? `100vh` : `0`};
+    width: ${open ? `300px` : `0px`};
     transition: .3s;
 `;
 
@@ -47,6 +47,7 @@ const NavigationWrapper = styled.div`
     flex-direction: row-reverse;
     top: 0;
     left: 0;
+    z-index: 100;
 `
 
 
@@ -74,7 +75,7 @@ function Navigation() {
                 }
 
             </NavigationToggleBtn>
-            {open && <NavigationList open>
+            {open && <NavigationList open={open}>
                 <NavigationItem href="/">
                     Заказы на производство
                 </NavigationItem>

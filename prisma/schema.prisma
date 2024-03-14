@@ -11,7 +11,11 @@ datasource db {
 }
 
 model OrderM {
-  id        Int     @id @default(autoincrement())
-  title     String
-  content   String?
+  id                      Int     @id @default(autoincrement())
+  name                    String
+  order                   String
+  date                    String
+  products                String
+  comment                 String?
+  status                  String?
 }

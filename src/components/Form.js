@@ -9,6 +9,10 @@ const Input = styled.input`
     font-size: 20px;
 `;
 
+const Textarea = styled.textarea`
+    padding: 10px 20px;
+    font-size: 20px;
+`
 
 
 const InputDate = styled.input`
@@ -27,6 +31,7 @@ const Form = styled.form`
 const StyledFormRow = styled.div`
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 10px;
 `
 
@@ -35,4 +40,13 @@ const StyledFormCol = styled.div`
     flex-direction: column;
 `
 
-export { Form, Input, Label, InputDate, Select, StyledFormRow, StyledFormCol };
+export { 
+    Form,
+    Input,
+    Label,
+    InputDate,
+    Select,
+    StyledFormRow,
+    StyledFormCol,
+    Textarea, 
+};
